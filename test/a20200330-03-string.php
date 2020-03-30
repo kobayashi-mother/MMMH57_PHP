@@ -3,12 +3,12 @@
 $a = 'shelly';
 
 echo 'my name is $a<br>'; //單引號會呈現原本的內容
-echo "my name is $a<br>"; //雙引號會把變數值取代
+echo "my name is $a<br>"; //雙引號會把變數用變數值取代
 
 
 echo "my name is {$a}123<br>";
 echo "my name is ${a}123<br>";
-echo "my name is $a123<br>"; //Notice
+echo "my name is $a123<br>"; //Notice 會以為$a123是一個變數
 
 echo "<h2>
 hello
