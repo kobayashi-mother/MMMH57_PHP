@@ -2,7 +2,9 @@
 
 <?php include __DIR__. '/part-to-php/head.php'; ?>
 <?php include __DIR__. '/part-to-php/nav.php'; ?>
+<div class="container">
 <form>
+
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -18,5 +20,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 <?php include __DIR__. '/part-to-php/footer.php'; ?>
 
