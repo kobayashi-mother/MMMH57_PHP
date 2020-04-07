@@ -4,11 +4,23 @@ if(! isset($_SESSION)){
     session_start(); //啟動session功能 !->not 的意思
 }
 
-if (isset($_POST['account']) and isset($_POST['password'])){
-    if ($_POST['account']=='shelly' and $_POST['password']=='123'){
-        $_SESSION['loginUser']='shelly';
-        }
+//方法2-----------------------------------------------------------
+
+$user = [
+        'shin'=>['nickname'=>'雪莉','pw'=>'1234'],
+        'deer'=>['nickname'=>'安麗','pw'=>'5678'],
+        'bill'=>['nickname'=>'雪莉','pw'=>'910'],
+];
+if(isset($_POST['account']) and isset($_POST['password'])){
+
 }
+
+//方法1-----------------------------------------------------------
+//if (isset($_POST['account']) and isset($_POST['password'])){
+//    if ($_POST['account']=='shelly' and $_POST['password']=='123'){
+//        $_SESSION['loginUser']='shelly';
+//        }
+//}
 
 ?>
 
