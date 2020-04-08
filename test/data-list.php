@@ -1,7 +1,17 @@
 <?php
 require __DIR__. '/__connect_dp.php';
 
-$stmt = $pdo->query("SELECT * FROM adress_book");
+$perPage = 5;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1 ;
+
+$totalRows = $pdo->query("SELECT COUNT(1) FROM `adress_book`")
+                ->fetch(PDO::FETCH_NUM)[0];
+
+$totalPages = ceil($totalRows/$perPage);
+
+$sql = sprintf("SELECT * FROM `adress_book` LIMIT %s, %s", ($page-1)*$perPage, $perPage);
+
+$stmt = $pdo->query($sql);
 
 ?>
 
@@ -9,6 +19,7 @@ $stmt = $pdo->query("SELECT * FROM adress_book");
 <?php include __DIR__. '/part-to-php/nav.php'; ?>
 
 <div class="container">
+    <div class="row">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -33,4 +44,16 @@ $stmt = $pdo->query("SELECT * FROM adress_book");
         <?php endwhile ?>
         </tbody>
     </table>
+    </div>
+    <div class="row">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <?php for($i=1; $i<=$totalPages; $i++): ?>
+            <li class="page-item <?= $i===$page ? 'active': "" ?>">
+                <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+            </li>
+            <?php endfor; ?>
+        </ul>
+    </nav>
+    </div>
 </div>
