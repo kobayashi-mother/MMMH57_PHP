@@ -23,29 +23,47 @@ $stmt = $pdo->query($sql);
 
 <?php include __DIR__. '/part-to-php/head.php'; ?>
 <?php include __DIR__. '/part-to-php/navbar.php'; ?>
+<style>
+    tbody tr i.fa-trash-alt {
+        color: red;
+    }
+</style>
 
 <div class="container">
     <div class="row">
     <table class="table table-striped">
         <thead>
         <tr>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
             <th scope="col">#</th>
             <th scope="col">name</th>
             <th scope="col">address</th>
             <th scope="col">mail</th>
             <th scope="col">birthday</th>
             <th scope="col">number</th>
+            <th scope="col">edit</th>
         </tr>
         </thead>
         <tbody>
         <?php while ($r=$stmt->fetch()): ?>
             <tr>
+                <td>
+                    <a href="javascript: delete_it(<?= $r['sid'] ?>)">
+
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
                 <td><?=$r['sid']?></td>
                 <td><?=$r['name']?></td>
                 <td><?=$r['address']?></td>
                 <td><?=$r['mail']?></td>
                 <td><?=strip_tags($r['birthday'])?></td>
                 <td><?=htmlentities($r['number'])?></td>
+                <td>
+                    <a href="data-delete.php?sid=<?= $r['sid'] ?>">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
             </tr>
         <?php endwhile ?>
         </tbody>
@@ -71,4 +89,11 @@ $stmt = $pdo->query($sql);
 </div>
 
 <?php include __DIR__. '/part-to-php/script.php'; ?>
+
+<script>
+     function delete_it(sid) {
+         if(confirm(`確定要刪除資料編號為 ${sid} 的項目嗎?`))
+         location.href = 'data-delete.php?sid=' +sid;｛}
+     }
+</script>
 <?php include __DIR__. '/part-to-php/footer.php'; ?>

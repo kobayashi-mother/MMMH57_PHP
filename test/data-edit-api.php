@@ -5,12 +5,23 @@ require __DIR__. '/__connect_dp.php';
 header('Content-Type: application/json');
 // mime type 預設為 text/html
 // jpg 檔的 mime type ?
+
+//讓email的內容不要重複
+//UPDATE `adress_book` SET `email`=CONCAT(ROUND(RAND()*100000),'@gmail.com')
 $output = [
     'success' => false,
-    'error' => '欄位資料不足',
+    'error' => '沒有sid',
     'code' => 0,
     'postData' => $_POST
 ];
+
+$sid = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
+//如果沒有給sid 就回傳訊息然後結束
+if (empty($sid)) {
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 
 if(isset($_POST['name']) and isset($_POST['number'])) {
     // TODO: 欄位資料檢查
