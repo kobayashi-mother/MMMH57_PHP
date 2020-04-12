@@ -43,7 +43,7 @@ if(isset($_POST['account']) and isset($_POST['password'])){
 <form action="" method="post">
     <input type="text" name="account" placeholder="account"><br>
     <input type="password" name="password" placeholder="password"><br>
-    <input type="submit">
+    <input type="submit" class="">
 </form>
 
 <?php endif; ?>
