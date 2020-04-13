@@ -1,5 +1,5 @@
-
-
+<?php $title='boot'
+?>
 <?php include __DIR__. '/part-to-php/head.php'; ?>
 <?php include __DIR__. '/part-to-php/nav.php'; ?>
 <div class="container">
