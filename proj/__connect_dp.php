@@ -18,3 +18,6 @@ try{
 } catch (PDOExeption $ex){
     echo 'Ex:'. $ex->getMessage();
 }
+
+
+session_start();
