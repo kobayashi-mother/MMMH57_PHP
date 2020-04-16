@@ -36,26 +36,28 @@ foreach($rows as $r){
                 </thead>
                 <tbody>
                 <?php
-                $total = 0;
                 foreach ($_SESSION['cart'] as $sid=>$qty):
                 $item = $data_ar[$sid];
-                $total += $item['price']*$item['quantity']
                 ?>
-                <tr data-sid="<?= $sid?>">
-                    <td><i class="fas fa-trash-alt"></i></td>
+                <tr class="p-item" data-sid="<?= $sid?>">
+                    <td><a href="#" onclick="removeProductItem(event)"><i class="fas fa-trash-alt"></i></a></td>
                     <td><img src="imgs/small/<?= $item['book_id'] ?>.jpg" alt=""></td>
                     <td><?= $item['bookname'] ?></td>
-                    <td class="price"><?= $item['price'] ?></td>
+                    <td class="price" data-price="<?= $item['price'] ?>"></td>
                     <td>
-                        <input class="form-control" type="number" value="<?= $item['quantity'] ?>" onchange="changeQty(event)">
+                        <select class="form-control quantity" data-qty="<?= $item['quantity'] ?>" onchange="changeQty(event)">
+                            <?php for($i=1; $i<=20; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
                     </td>
-                    <td class="sub-total"><?= $item['price']*$item['quantity'] ?></td>
+                    <td class="sub-total"></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
             <div class="alert alert-primary" role="alert">
-                總計: <span id="totalAmount"><?= $total?></span>
+                總計: <span id="totalAmount"></span>
             </div>
 
 
@@ -66,18 +68,69 @@ foreach($rows as $r){
 </div>
 <?php include __DIR__ . '/part-to-php/script.php'; ?>
 <script>
+
+    const dallorCommas = function(n){
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+    function removeProductItem(event){
+        event.preventDefault(); // 避免 <a> 的連結
+        const tr = $(event.target).closest('tr.p-item')
+        const sid = tr.attr('data-sid');
+
+        $.get('add-to-cart-api.php', {sid}, function(data){
+            tr.remove();
+            countCartObj(data);
+            calPrices();
+        }, 'json');
+    }
+
+
     function changeQty(event){
         let qty = $(event.target).val();
         let tr = $(event.target).closest('tr');
         let sid = tr.attr('data-sid');
-        let price = tr.find('.price').text();
-        console.log({sid, qty, price});
+
+
         $.get('add-to-cart-api.php', {sid, qty}, function(data){
-            tr.find('.sub-total').text(price*qty);
 
             countCartObj(data);
+            calPrices();
         }, 'json');
 
     }
+
+    function calPrices() {
+        const p_items = $('.p-item');
+        let total = 0;
+
+        if(! p_items.length){
+            location.href = 'product-list.php';
+            return;
+        }
+
+        p_items.each(function(i, el){
+            console.log( $(el).attr('data-sid') );
+
+            const $price = $(el).find('.price');
+            console.log($price[0]);
+            $price.text('$'+$price.attr('data-price'));
+
+            const $qty =  $(el).find('.quantity'); // <select> combo box
+            // 如果有的話才設定
+            if($qty.attr('data-qty')){
+                $qty.val( $qty.attr('data-qty') );
+            }
+            $qty.removeAttr('data-qty'); // 設定完就移除
+            const $sub_total = $(el).find('.sub-total');
+
+            $sub_total.text('$ ' + dallorCommas($price.attr('data-price') * $qty.val()));
+            total += $price.attr('data-price') * $qty.val();
+        });
+
+        $('#totalAmount').text( '$ ' + dallorCommas(total));
+
+    }
+    calPrices();
+
 </script>
 <?php include __DIR__ . '/part-to-php/footer.php'; ?>
