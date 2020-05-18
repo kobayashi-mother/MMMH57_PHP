@@ -15,7 +15,6 @@
 <form action="" name="form1" onsubmit="return mySubmit()">
 <!--    隱藏的資料使用hidden-->
     <input type="hidden" name="yyy" value="hello">
-
     <input type="number" id="a">+<input type="number" id="b"><button>=</button>
     <input type="text" id="c" disabled="disabled">
 
@@ -24,28 +23,27 @@
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script>
     // /*方法1--------------------*/
-    // function mySubmit() {
-    //     $.post('a20200406-03-ajax-api.php',
-    //         {a: document.querySelector('#a').value,
-    //          b: $('#b').val
-    //         }, function (data) {
-    //         console.log(data);
-    //         $('#c').val(data.c);
-    //     }, 'json');
-    //
-    //     return false;
-    // }
-
-    /*方法2--------------------*/
-    // 使用serialize form和a和b需要加name
     function mySubmit() {
-        $.post('a20200406-03-ajax-api.php', $(document.form1).serialize(), function (data) {
+        $.post('a20200406-03-ajax-api.php',
+            {a: document.querySelector("#a").value,
+             b: $("#b").val()
+            }, function (data) {
             console.log(data);
-            $('#c').val(data.c)
-            },'json');
+            $('#c').val(data.c);
+        }, 'json');
 
         return false;
     }
+
+    /*方法2--------------------*/
+    // 使用serialize form和a和b需要加name
+    // function mySubmit() {
+    //     $.post('a20200406-03-ajax-api.php', $(document.form1).serialize(), function (data) {
+    //         console.log(data);
+    //         $('#c').val(data.c)
+    //         },'json');
+    //     return false;
+    // }
 
 </script>
 </body>

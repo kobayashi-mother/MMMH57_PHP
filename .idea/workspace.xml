@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5502b62-bc9e-4e1c-8d4c-27a0e734e74c" name="Default Changelist" comment="ALL">
-      <change afterPath="$PROJECT_DIR$/test/a20200406-01-form-get.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-02-form-post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-03-ajax-api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-03-ajax.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-05-cookie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-06-timezone-date.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-07-session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-08-lognin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/a20200406-09-lognout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/bootstrap-test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/bootstrap-test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/part-to-php/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/part-to-php/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/a20200406-03-ajax-api.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/a20200406-03-ajax-api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/a20200406-03-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/a20200406-03-ajax.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +37,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,6 +68,7 @@
       <workItem from="1585621052043" duration="15608000" />
       <workItem from="1585648568630" duration="759000" />
       <workItem from="1586137927037" duration="16596000" />
+      <workItem from="1587483459851" duration="3617000" />
     </task>
     <task id="LOCAL-00001" summary="ALL">
       <created>1585555593095</created>
