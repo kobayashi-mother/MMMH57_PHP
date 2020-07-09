@@ -1,60 +1,68 @@
+<!--method="get"是預設值-->
+<!--action=""傳遞給誰-->
+<!--定要設置name 會跑到url上-->
+<!--
+<//?php echo  $a ?> = <//?= $a ?>
+變數前後要留空格
+-->
+
 <?php
-$a = isset($_GET['a'])?intval($_GET['a']):0;
+$a = isset($_GET['a'])?intval($_GET['a']) :0 ;
 ?>
 
-<form>
-
-<!-- 1.php echo=> = -->
-<!-- 2.?= $a ? $a前後要放空格 -->
-
-    <input type="number" name="a" value="<?= $a ?>">
-    <input type="submit" value="SUMIT">
+<form action="" method="get">
+    <input type="number" name="a" value="<?=  $a ?>">
+    <input type="submit" value="SUBMIT">
 </form>
 
+
+SWITCH================<br>
 <?php
 
-$ss=intval($a/10);
+$ss = intval($a/10);
 
 switch ($ss){
-    case 10:
     case 9:
-        $g='A';
-        break;
+     $g='A';
+     break;
     case 8:
-        $g='B';
+        $g='c';
         break;
     case 7:
-        $g='C';
+        $g='d';
         break;
     case 6:
-        $g='D';
+        $g='e';
         break;
     default:
-        $g='F';
+        $g='f';
+
 }
-echo $g;
-
-
+echo "$g <br>";
 
 
 ?>
 
-<!-------------------------------------------if else-->
 
+IF=====================<br>
 <?php
-//
-//if($a>=80){
-//$s='A';
-//
-//} elseif($a>=70){
-//    $s='B';
-//} elseif($a>=60){
-//    $s='C';
-//
-//}else{
-//    $s='D';
-//}
-//
-//echo $s;
-//
-//?>
+
+
+
+if($a>=80){
+    $s='A';
+
+} elseif($a>=70){
+    $s='B';
+} elseif($a>=60){
+    $s='C';
+
+}else{
+    $s='D';
+}
+
+echo $s;
+
+?>
+
+

@@ -29,5 +29,6 @@ echo FALSE. '<br>'; //布林值不區分大小寫 //0
 echo  true. '<br>'; //1
 
 ?>
+
 </body>
 </html>

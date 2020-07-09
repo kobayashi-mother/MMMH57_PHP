@@ -18,8 +18,19 @@ $a=[
     'd'=>'dog',
 ];
 
-foreach($a as $a=>$k){
-    echo "$a => $k <br>";
+$b=[
+    'a'=>'apple',
+    'b'=>'banana',
+    'a'=>'cat',
+    'd'=>'dog',
+];
+
+foreach($a as $k=>$v){
+    echo "$k => $v <br>";
+}
+
+foreach ($b as $v =>$k){
+    echo "$v => $k <br>";
 }
 
 ?>

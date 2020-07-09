@@ -23,9 +23,14 @@ foreach ($a as $i){
     echo "$i <br>";
 }
 
-
+foreach ($b as $i){
+    echo "$i <br>";
+}
 
 ?>
+
+
+
 
 </pre>
 

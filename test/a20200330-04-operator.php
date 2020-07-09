@@ -18,3 +18,12 @@ echo '<br>';
 $b='aaa';
 echo $b ?:'false';//如果$b是true 就輸出$b
 //如果$b是false 就輸出'false'
+echo '<br>';
+
+$a = "xyz\nabc\"def\'ghi\\";
+$b = 'xyz\nabc\"def\'ghi\\';
+echo $a. '<br>';
+echo $b;
+
+?>
+
