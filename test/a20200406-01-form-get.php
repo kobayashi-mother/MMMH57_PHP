@@ -14,8 +14,8 @@
 <!--//novalidate給填資料的表格不會受限-->
 <!--//form預設值為method="get" action=""-->
 <!--//action="" 指傳給自己-->
-<!--//html的lable ->就算點到字也可以填入資料-->
-<!--//資料傳出一定要有name-->
+<!--//html的lable 就算點到字也可以填入資料 id 和 form 要同名稱-->
+<!--//資料傳出一定要有name，通常name和id同名稱-->
 
 <form novalidate method="get" action="">
     <div class="row">

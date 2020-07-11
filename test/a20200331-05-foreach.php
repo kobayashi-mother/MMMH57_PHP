@@ -28,7 +28,7 @@ foreach ($b as $i){
 }
 
 ?>
-
+<?= $title ?: '' ; ?>
 
 
 

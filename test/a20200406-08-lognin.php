@@ -6,14 +6,22 @@ if(! isset($_SESSION)){
 
 //方法2-----------------------------------------------------------
 
-$user = [
+$users = [
         'shin'=>['nickname'=>'雪莉','pw'=>'1234'],
         'deer'=>['nickname'=>'安麗','pw'=>'5678'],
         'bill'=>['nickname'=>'雪莉','pw'=>'910'],
 ];
-if(isset($_POST['account']) and isset($_POST['password'])){
+
+if (isset($_POST['account']) and isset($_POST['password'])){
+    if (! empty($users[$_POST['account']]) and $users[$_POST['account']]['pw'] === $_POST['password']){
+        $_SESSION['loginUser'] = [
+                'account' => $_POST['account'],
+                'nickname' => $users[$_POST['account']]['nickname'],
+        ];
+    }
 
 }
+
 
 //方法1-----------------------------------------------------------
 //if (isset($_POST['account']) and isset($_POST['password'])){
@@ -36,7 +44,7 @@ if(isset($_POST['account']) and isset($_POST['password'])){
 <body>
 <?php if(isset($_SESSION['loginUser'])):?>
 <div>
-    <?= $_SESSION['loginUser']?> ,你好
+    <?= $_SESSION['loginUser']['nickname'] ?> ,你好
 </div>
     <a href="a20200406-09-lognout.php">登出</a>
 <?php else: ?>

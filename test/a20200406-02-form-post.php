@@ -6,7 +6,7 @@
 <pre>
     <?php
     print_r($_POST);
-    //print_r($_REQUEST); post get皆有
+    //print_r($_REQUEST); post get皆會接收
     ?>
 </pre>
 
@@ -34,6 +34,6 @@
 </form>
 </div>
 <?php include __DIR__. '/part-to-php/script.php'; ?>
-    <?php include __DIR__. '/part-to-php/footer.php'; ?>
+<?php include __DIR__. '/part-to-php/footer.php'; ?>
 
 
